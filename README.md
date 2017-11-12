@@ -1,9 +1,10 @@
 # CarND-Controls-PID
 
-Implementation of a PID controller in C++ to maneuver the vehicle around the track!
+The repository contains implementation of a PID controller in C++ to maneuver the vehicle around Udacity's Simulated track.
 
-This project involves a Unity Simulator which can be downloaded [here](https://github.com/udacity/self-driving-car-sim/releases). The simulator provides the cross track error (CTE) and the velocity (mph) in order to compute the appropriate steering angle.
+The Unity Simulator used for this project can be downloaded [here](https://github.com/udacity/self-driving-car-sim/releases). The simulator provides the cross track error (CTE) and the velocity (mph) in order to compute the appropriate steering angle.
 
+#### Paramater Selection
 The hyper-parameters have been chosen based on manual tuning. If there is too much oscillation, either the proportional gain was reduced or the derivative gain was increased until it stabalizes. The integral term was set to zero.
 
 Kp = 0.15; Ki = 0.0 ; Kd = 2.5
@@ -14,13 +15,6 @@ PID pid;
 pid.Init(0.15, 0.0, 2.5);
 ```
 
-
-##### Simulator Output Recording
-
-
-[![PID Control](https://img.youtube.com/vi/cQ5XvudEdjE/0.jpg)](https://www.youtube.com/watch?v=cQ5XvudEdjE "PID Control")
-
-
 ##### Effects of each parameter:
 
 Proportional - If its is too high the oscillations will keep on increasing and the system will not converge. If the parameter is too small, it will take a lot of time to get to the desired set point.
@@ -30,6 +24,10 @@ Integral - This parameter sets how much we take into consideration the cumulativ
 Derivative - This parameter considers the rate of change in the error. If the error is rapidly approaching zero, this parameter will attempt to slow things down to avoid overshooting. 
 
 In future, we can also use parameter optimization algorithms such as Twiddle to select optimal parameters.
+
+##### Simulator Output Recording
+
+[![PID Control](https://img.youtube.com/vi/cQ5XvudEdjE/0.jpg)](https://www.youtube.com/watch?v=cQ5XvudEdjE "PID Control")
 
 
 ---
